@@ -2,7 +2,7 @@
   "name": "jarr.js",
   "description": "An extended Javascript ARRray like object with methods to create chainable queries. Simplify your code by removing those 'for' loops.",
   "author": "Allen Evans <allenevans@hotmail.com>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repositories": [
     {
       "type": "git",
