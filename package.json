@@ -1,5 +1,5 @@
 {
-  "name": "Jarr.js",
+  "name": "jarr.js",
   "description": "An extended Javascript ARRray like object with methods to create chainable queries. Simplify your code by removing those 'for' loops.",
   "author": "Allen Evans <allenevans@hotmail.com>",
   "version": "0.1.0",
