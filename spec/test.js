@@ -1,11 +1,11 @@
 "use strict";
 (function (ok, test, equal, Jarr) {
 
-    test("Jarr is defined", function () {
+    test("T0001 : Jarr is defined", function () {
         ok(typeof Jarr != "undefined", "Jarr is not defined");
     });
 
-    test("T0001 : Jarr.indexOf", function () {
+    test("T0002 : Jarr.indexOf", function () {
         var expected = 2;
 
         equal(new Jarr([1, 2, 3, 4, 5, 6]).indexOf(3),
@@ -13,7 +13,7 @@
             "Jarr.indexOf");
     });
 
-    test("T0002 : Jarr.indexOf", function () {
+    test("T0003 : Jarr.indexOf", function () {
         var expected = 1,
             arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
 
@@ -22,7 +22,7 @@
             "Jarr.indexOf");
     });
 
-    test("T0003 : Jarr.contains", function () {
+    test("T0004 : Jarr.contains", function () {
         var expected = true;
 
         equal(new Jarr([1, 2, 3, 4, 5, 6]).contains(4),
@@ -30,7 +30,7 @@
             "Jarr.contains");
     });
 
-    test("T0004 : Jarr.contains", function () {
+    test("T0005 : Jarr.contains", function () {
         var expected = true,
             arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
 
@@ -40,7 +40,16 @@
 
     });
 
-    test("T0005 : Jarr.add", function () {
+    test("T0006 : Jarr.contains", function () {
+        var expected = true,
+            arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
+
+        equal(new Jarr(arr).contains("a", function (search, item) { return item[search] == search;}),
+            expected,
+            "Jarr.contains");
+    });
+
+    test("T0007 : Jarr.add", function () {
         var expected = 4,
             arr = new Jarr({a : "a"}, {b : "b"}, {c : "c"});
 
@@ -52,7 +61,7 @@
 
     });
 
-    test("T0006 : Jarr.add", function () {
+    test("T0008 : Jarr.add", function () {
         var expected = 3,
             arr = new Jarr({a : "a"}, {b : "b"}, {c : "c"});
 
@@ -63,7 +72,7 @@
             "Jarr.add");
     });
 
-    test("T0007 : Jarr.remove", function () {
+    test("T0009 : Jarr.remove", function () {
         var expected = 2,
             arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
 
@@ -74,7 +83,7 @@
             "Jarr.remove");
     });
 
-    test("T0008 : Jarr.remove", function () {
+    test("T0010 : Jarr.remove", function () {
         var expected = 3,
             arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
 
@@ -86,7 +95,7 @@
     });
 
 
-    test("T0009 : Jarr.removeAt", function () {
+    test("T0011 : Jarr.removeAt", function () {
         var arr = new Jarr([{a : "a"}, {b : "b"}, {c : "c"}]);
 
         arr.removeAt(1);
@@ -95,7 +104,7 @@
         equal(arr.elementAt(1).c, "c", "Jarr.removeAt");
     });
 
-    test("T0010 : Jarr.removeAt", function () {
+    test("T0012 : Jarr.removeAt", function () {
         var arr = new Jarr({a : "a"}, {b : "b"}, {c : "c"});
 
         arr.removeAt(999);
@@ -105,7 +114,7 @@
     });
 
 
-    test("T0011 : Jarr.copy", function () {
+    test("T0013 : Jarr.copy", function () {
         var arr = new Jarr(1, 2, 3, 4, 5),
             result,
             i;
@@ -119,7 +128,7 @@
         }
     });
 
-    test("T0012 : Jarr.copy", function () {
+    test("T0014 : Jarr.copy", function () {
         var arr = new Jarr(),
             result,
             i;
@@ -133,7 +142,7 @@
         }
     });
 
-    test("T0013 : Jarr.insertAt", function () {
+    test("T0015 : Jarr.insertAt", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]);
 
         arr.insertAt(3, 'X');
@@ -145,7 +154,7 @@
     });
 
 
-    test("T0014 : Jarr.insertAt", function () {
+    test("T0016 : Jarr.insertAt", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]);
 
         arr.insertAt(-1, 'X');// insert at penultimate position
@@ -157,7 +166,7 @@
     });
 
 
-    test("T0015 : Jarr.insertAt", function () {
+    test("T0017 : Jarr.insertAt", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]);
 
         arr.insertAt(999, 'X'); //out of bounds, insert at end
@@ -168,7 +177,7 @@
         equal(arr.elementAt(6), 'X', "Jarr.insertAt");
     });
 
-    test("T0016 : Jarr.reverse", function () {
+    test("T0018 : Jarr.reverse", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]);
 
         arr.reverse();
@@ -182,20 +191,20 @@
         equal(arr.elementAt(5), 1, "Jarr.reverse");
     });
 
-    test("T0017 : Jarr.reverse", function () {
+    test("T0019 : Jarr.reverse", function () {
         var arr = new Jarr([]);
         arr.reverse();
 
         equal(arr.count(), 0, "Jarr.reverse");
     });
 
-    test("T0018 : Jarr.reverse", function () {
+    test("T0020 : Jarr.reverse", function () {
         var arr = new Jarr();
         arr.reverse();
         equal(arr.count(), 0, "Jarr.reverse");
     });
 
-    test("T0019 : Jarr.where", function () {
+    test("T0021 : Jarr.where", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]),
             result = arr.where(function (item) {
                 return item > 3;
@@ -208,7 +217,7 @@
     });
 
 
-    test("T0020 : Jarr.where", function () {
+    test("T0022 : Jarr.where", function () {
         var arr = new Jarr({value : 1}, {value : 2}, {value : 3}, {value : 4}, {value : 5}, {value : 6}),
             result = arr.where(function (item) {
                 return item.value <= 3;
@@ -220,7 +229,7 @@
         equal(result.elementAt(2).value, 3, "Jarr.where");
     });
 
-    test("T0021 : Jarr.orderBy", function () {
+    test("T0023 : Jarr.orderBy", function () {
         var arr = new Jarr({value : 4}, {value : 1}, {value : 5}, {value : 2}, {value : 6}, {value : 3}),
             result = arr.orderBy(function (item) {
                 return item.value;//order by value property
@@ -235,7 +244,7 @@
         equal(result.elementAt(5).value, 6, "Jarr.orderBy");
     });
 
-    test("T0022 : Jarr.orderBy", function () {
+    test("T0024 : Jarr.orderBy", function () {
         var arr = new Jarr({name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
             result = arr.orderBy(function (item) {
                 return item.name;//order by value property
@@ -250,22 +259,22 @@
         equal(result.elementAt(5).name, "yellow", "Jarr.orderBy");
     });
 
-    test("T0023 : Jarr.orderByDescending", function () {
+    test("T0025 : Jarr.orderByDescending", function () {
         var arr = new Jarr({value : 4}, {value : 1}, {value : 5}, {value : 2}, {value : 6}, {value : 3}),
             result = arr.orderByDescending(function (item) {
                 return item.value;//order by value property
             });
 
-        equal(result.count(), 6, "Jarr.orderBy");
-        equal(result.elementAt(0).value, 6, "Jarr.orderBy");
-        equal(result.elementAt(1).value, 5, "Jarr.orderBy");
-        equal(result.elementAt(2).value, 4, "Jarr.orderBy");
-        equal(result.elementAt(3).value, 3, "Jarr.orderBy");
-        equal(result.elementAt(4).value, 2, "Jarr.orderBy");
-        equal(result.elementAt(5).value, 1, "Jarr.orderBy");
+        equal(result.count(), 6, "Jarr.orderByDescending");
+        equal(result.elementAt(0).value, 6, "Jarr.orderByDescending");
+        equal(result.elementAt(1).value, 5, "Jarr.orderByDescending");
+        equal(result.elementAt(2).value, 4, "Jarr.orderByDescending");
+        equal(result.elementAt(3).value, 3, "Jarr.orderByDescending");
+        equal(result.elementAt(4).value, 2, "Jarr.orderByDescending");
+        equal(result.elementAt(5).value, 1, "Jarr.orderByDescending");
     });
 
-    test("T0024 : Jarr.orderByDescending", function () {
+    test("T0026 : Jarr.orderByDescending", function () {
         var arr = new Jarr({name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
             result = arr.orderByDescending(function (item) {
                 return item.name;//order by value property
@@ -279,31 +288,6 @@
         equal(result.elementAt(4).name, "green", "Jarr.orderBy");
         equal(result.elementAt(5).name, "blue", "Jarr.orderBy");
     });
-
-    test("T0025 : Jarr.selectMany", function () {
-        var arr = new Jarr({name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
-            result = arr.selectMany(function (item) {
-                return item.name;//order by value property
-            });
-
-        equal(result.count(), 6, "Jarr.selectMany");
-        equal(result.elementAt(0), "red", "Jarr.selectMany");
-        equal(result.elementAt(1), "green", "Jarr.selectMany");
-        equal(result.elementAt(2), "blue", "Jarr.selectMany");
-        equal(result.elementAt(3), "purple", "Jarr.selectMany");
-        equal(result.elementAt(4), "orange", "Jarr.selectMany");
-        equal(result.elementAt(5), "yellow", "Jarr.selectMany");
-    });
-
-    test("T0026 : Jarr.selectMany", function () {
-        var arr = new Jarr(),
-            result = arr.selectMany(function (item) {
-                return item.name;//order by value property
-            });
-
-        equal(result.count(), 0, "Jarr.selectMany");
-    });
-
 
     test("T0027 : Jarr.count", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]),
@@ -397,7 +381,7 @@
                 return item.value > 50;
             });
 
-        equal(result, false, "Jarr.any");
+        equal(result, false, "Jarr.all");
     });
 
     test("T0037 : Jarr.all", function () {
@@ -406,7 +390,7 @@
                 return item.value > 0;
             });
 
-        equal(result, true, "Jarr.any");
+        equal(result, true, "Jarr.all");
     });
 
     test("T0038 : Jarr.first", function () {
@@ -517,66 +501,76 @@
         equal(result.count(), 6, "Jarr.notIntersect");
     });
 
-    test("T0050 : Jarr.defaultIfEmpty", function () {
-        var arr = new Jarr(),
-            result = arr.defaultIfEmpty({name: "default"});
+    test("T0050 : Jarr.notIntersect", function () {
+        var arr1 = new Jarr([{shape : "square"},{shape : "circle"}, {shape : "triangle"}, {shape : "rectangle"} ]),
+            arr2 = [{id : 0, shape : "circle"}, {id : 1, shape : "rectangle"}],
+            result = arr1.notIntersect(arr2, function(search, item) {
+                return search && search.shape == item.shape;
+            });
 
-        equal(result.name, "default", "Jarr.defaultIfEmpty");
+        equal(result.count(), 2, "Jarr.notIntersect");
     });
 
     test("T0051 : Jarr.defaultIfEmpty", function () {
+        var arr = new Jarr(),
+            result = arr.defaultIfEmpty([{name: "default"}, {name: "default 2"}]);
+
+        equal(result[0].name, "default", "Jarr.defaultIfEmpty");
+    });
+
+    test("T0052 : Jarr.defaultIfEmpty", function () {
         var arr = new Jarr({name: "first"}),
-            result = arr.defaultIfEmpty([{name: "default"}]);
+            result = arr.defaultIfEmpty([{name: "default"}, {name: "default 2"}]);
 
         equal(result.count(), 1, "Jarr.defaultIfEmpty");
     });
 
-    test("T0052 : Jarr.elementAtOrDefault", function () {
+    test("T0053 : Jarr.elementAtOrDefault", function () {
         var arr = new Jarr({name: "red", value : 99}, {name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "blue", value : 88}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
             result = arr.elementAtOrDefault(5, {name: "default", value : 0});
 
         equal(result.name, "purple", "Jarr.elementAtOrDefault");
     });
 
-    test("T0053 : Jarr.elementAtOrDefault", function () {
+    test("T0054 : Jarr.elementAtOrDefault", function () {
         var arr = new Jarr({name: "red", value : 99}, {name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "blue", value : 88}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
             result = arr.elementAtOrDefault(55, {name: "default", value : 0});
 
         equal(result.name, "default", "Jarr.elementAtOrDefault");
     });
 
-    test("T0054 : Jarr.firstOrDefault", function () {
+    test("T0055 : Jarr.firstOrDefault", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]),
             result = arr.firstOrDefault(999);
 
         equal(result, 1, "Jarr.firstOrDefault");
     });
 
-    test("T0055 : Jarr.firstOrDefault", function () {
+    test("T0056 : Jarr.firstOrDefault", function () {
         var arr = new Jarr(),
             result = arr.firstOrDefault(999);
 
         equal(result, 999, "Jarr.firstOrDefault");
     });
 
-    test("T0056 : Jarr.lastOrDefault", function () {
+    test("T0057 : Jarr.lastOrDefault", function () {
         var arr = new Jarr([1, 2, 3, 4, 5, 6]),
             result = arr.lastOrDefault(999);
 
         equal(result, 6, "Jarr.lastOrDefault");
     });
 
-    test("T0057 : Jarr.lastOrDefault", function () {
+    test("T0058 : Jarr.lastOrDefault", function () {
         var arr = new Jarr(),
             result = arr.lastOrDefault(999);
 
         equal(result, 999, "Jarr.lastOrDefault");
     });
 
-    test("T0058 : Jarr.select", function () {
+    test("T0059 : Jarr.select", function () {
         var arr = new Jarr({name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
             result = arr.select(function (item) {
-                return item.name;//order by value property
+                return item.name;
             });
 
         equal(result.count(), 6, "Jarr.select");
@@ -588,7 +582,7 @@
         equal(result.elementAt(5), "yellow", "Jarr.select");
     });
 
-    test("T0059 : Jarr.select", function () {
+    test("T0060 : Jarr.select", function () {
         var arr = new Jarr(),
             result = arr.select(function (item) {
                 return item.name;//order by value property
@@ -597,7 +591,41 @@
         equal(result.count(), 0, "Jarr.select");
     });
 
-    test("T0060 : Jarr.orderBy", function () {
+    test("T0061 : Jarr.selectMany", function () {
+        var arr = new Jarr({name: "red", value : 4}, {name: "green", value : 1}, {name : "blue", value : 5}, {name : "purple", value : 2}, {name: "orange", value : 6}, {name: "yellow", value : 3}),
+            result = arr.selectMany(function (item) {
+                return item.name;//order by value property
+            });
+
+        equal(result.count(), 6, "Jarr.selectMany");
+        equal(result.elementAt(0), "red", "Jarr.selectMany");
+        equal(result.elementAt(1), "green", "Jarr.selectMany");
+        equal(result.elementAt(2), "blue", "Jarr.selectMany");
+        equal(result.elementAt(3), "purple", "Jarr.selectMany");
+        equal(result.elementAt(4), "orange", "Jarr.selectMany");
+        equal(result.elementAt(5), "yellow", "Jarr.selectMany");
+    });
+
+    test("T0062 : Jarr.selectMany", function () {
+        var arr = new Jarr(),
+            result = arr.selectMany(function (item) {
+                return item.name;//order by value property
+            });
+
+        equal(result.count(), 0, "Jarr.selectMany");
+    });
+    
+    test("T0063 : Jarr.selectMany", function () {
+        var arr = new Jarr({name: "red", values : [4, 5, 6]}, {name: "green", values : 1}, {name : "blue", values : [9, 0]}, {name : "purple", values : 1}, {name: "orange", values : [1, 2, 3]}, {name: "yellow", values : 3}),
+            result = arr.selectMany(function (item) {
+                return item.values;
+            });
+
+        equal(result.count(), 11, "Jarr.selectMany");
+        equal(result[3], 1, "Jarr.selectMany");
+    });
+    
+    test("T0064 : Jarr.orderBy", function () {
         var arr = new Jarr(5, 4, 7, 8, 4, 3, 44, 5, 6, 3456, 7, 3),
             result = arr.orderBy();
 
@@ -610,7 +638,7 @@
         equal(result.at(11), 3456, "Jarr.orderBy");
     });
     
-    test("T0061 : Jarr.toArray", function () {
+    test("T0065 : Jarr.toArray", function () {
         var arr = new Jarr(5, 4, 7, 8, 4, 3, 44, 5, 6, 3456, 7, 3),
             result = arr.toArray();
         

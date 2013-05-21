@@ -1,0 +1,13 @@
+{
+    "name": "Jarr.js",
+    "description" : "An extended Javascript ARRray like object with methods to create chainable queries. Simplify your code by removing those 'for' loops.",
+    "author": "Allen Evans <allenevans@hotmail.com>",
+    "version": "0.1.0",
+    "repositories"	: [{
+            "type": "git",
+            "url": "https://github.com/allenevans/Jarr.js"
+    }],
+    "description": "An extended Javascript ARRray like object with methods to create chainable queries. Simplify your code by removing those 'for' loops.",
+    "keywords": [ "jarr", "array", "query", "chain", "queryable" ],
+    "main": "src/jarr.js"
+}
