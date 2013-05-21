@@ -1,6 +1,6 @@
 /*
  * Jarr.js  :   An extended Javascript ARRray like object with methods to create chainable queries.
- * Version  :   0.1.0
+ * Version  :   0.1.1
  * Date     :   21/05/2013
  * Author   :   Allen Evans
  *
@@ -27,7 +27,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
  */
-(function (context) {
+(function () {
     "use strict";
 
     var Jarr = function Jarr(arr) {
@@ -468,6 +468,11 @@
         return this.slice();
     };
 
-    context.Jarr = Jarr;
-
-}(typeof window != "undefined" ? window : (typeof module != "undefined" ? module : {})));
+    if (typeof window !== "undefined") {
+        window.Jarr = Jarr;
+    }
+    
+    if (typeof module !== "undefined") {
+        module.exports = Jarr;
+    }
+}());
