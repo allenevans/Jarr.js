@@ -7,7 +7,6 @@
             "type": "git",
             "url": "https://github.com/allenevans/Jarr.js"
     }],
-    "description": "An extended Javascript ARRray like object with methods to create chainable queries. Simplify your code by removing those 'for' loops.",
     "keywords": [ "jarr", "array", "query", "chain", "queryable" ],
     "main": "src/jarr.js"
 }
